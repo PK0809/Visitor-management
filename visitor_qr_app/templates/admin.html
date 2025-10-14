@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visitor Admin Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f5f7;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: auto;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Visitor Admin Portal</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Purpose</th>
+            <th>Person to Meet</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+        </tr>
+        {% for visitor in visitors %}
+        <tr>
+            <td>{{ visitor.id }}</td>
+            <td>{{ visitor.name }}</td>
+            <td>{{ visitor.company_name }}</td>
+            <td>{{ visitor.email }}</td>
+            <td>{{ visitor.contact_number }}</td>
+            <td>{{ visitor.purpose }}</td>
+            <td>{{ visitor.person_to_meet }}</td>
+            <td>{{ visitor.check_in_time }}</td>
+            <td>{{ visitor.check_out_time or '---' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
