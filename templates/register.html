@@ -5,61 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visitor Registration</title>
     <style>
-        /* Reset and global styles */
+        /* Global reset */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f2f5f7;
+            background-color: #f0f4f8;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
 
         .container {
             background-color: #fff;
-            padding: 30px 25px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            max-width: 450px;
             width: 100%;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .logo {
-            display: block;
-            margin: 0 auto 20px auto;
-            width: 120px;
+            width: 150px;
             max-width: 50%;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         h2 {
+            color: #333;
             text-align: center;
             margin-bottom: 25px;
-            color: #333;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
+        }
+
+        form {
+            width: 100%;
         }
 
         form label {
             display: block;
-            margin-bottom: 6px;
-            color: #555;
+            margin-bottom: 5px;
             font-size: 0.95rem;
+            color: #555;
         }
 
         form input {
             width: 100%;
-            padding: 10px 12px;
+            padding: 12px 14px;
             margin-bottom: 18px;
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
         }
 
         form input:focus {
@@ -74,25 +81,28 @@
             font-weight: bold;
             cursor: pointer;
             border: none;
-            transition: background 0.3s;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
         }
 
         form input[type="submit"]:hover {
             background-color: #0056b3;
         }
 
-        /* Mobile adjustments */
+        /* Mobile responsiveness */
         @media (max-width: 480px) {
             .container {
                 padding: 20px 15px;
             }
 
             h2 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             form input {
-                padding: 10px;
+                padding: 10px 12px;
                 font-size: 0.95rem;
             }
         }
@@ -100,29 +110,31 @@
 </head>
 <body>
     <div class="container">
+        <!-- Logo -->
         <img src="{{ url_for('static', filename='logo.png') }}" alt="Company Logo" class="logo">
 
-        <h2>Visitor Registration</h2>
+        <h2>Visitor Registration Form</h2>
+
         <form method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required placeholder="Enter your name">
 
-            <label for="company_name">Company Name:</label>
-            <input type="text" name="company_name" id="company_name" required>
+            <label for="company_name">Company Name</label>
+            <input type="text" name="company_name" id="company_name" required placeholder="Enter your company">
 
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required placeholder="Enter your email">
 
-            <label for="contact_number">Contact Number:</label>
-            <input type="text" name="contact_number" id="contact_number" required>
+            <label for="contact_number">Contact Number</label>
+            <input type="text" name="contact_number" id="contact_number" required placeholder="Enter your contact number">
 
-            <label for="purpose">Purpose:</label>
-            <input type="text" name="purpose" id="purpose" required>
+            <label for="purpose">Purpose</label>
+            <input type="text" name="purpose" id="purpose" required placeholder="Reason for visit">
 
-            <label for="person_to_meet">Person to Meet:</label>
-            <input type="text" name="person_to_meet" id="person_to_meet" required>
+            <label for="person_to_meet">Person to Meet</label>
+            <input type="text" name="person_to_meet" id="person_to_meet" required placeholder="Who are you meeting?">
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Register">
         </form>
     </div>
 </body>
